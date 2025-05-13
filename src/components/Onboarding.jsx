@@ -1,5 +1,7 @@
-// src/components/Onboarding.js - Fixed with proper week calculation
+// src/components/Onboarding.js - Updated with timetable customization option
 import React, { useState } from 'react';
+import TimetableCustomization from './TimetableCustomization'
+import { timeBlocks } from '../data';
 
 function Onboarding({ completeOnboarding }) {
   const [step, setStep] = useState(1);
@@ -8,6 +10,8 @@ function Onboarding({ completeOnboarding }) {
     startDate: new Date().toISOString().split('T')[0],
     endDate: '',
     journeyLength: 70, // Default to 70 days (10 weeks of 7 days)
+    useCustomTimetable: false,
+    customTimeBlocks: []
   });
 
   // Calculate end date based on start date and journey length
@@ -19,7 +23,15 @@ function Onboarding({ completeOnboarding }) {
 
   // Update settings on input change
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
+    
+    if (type === 'checkbox') {
+      setSettings(prev => ({
+        ...prev,
+        [name]: checked
+      }));
+      return;
+    }
     
     // Special handling for start date and journey length
     if (name === 'startDate' || name === 'journeyLength') {
@@ -41,10 +53,30 @@ function Onboarding({ completeOnboarding }) {
     }
   };
 
+  // Save custom timetable
+  const saveCustomTimetable = (customBlocks) => {
+    setSettings(prev => ({
+      ...prev,
+      customTimeBlocks: customBlocks,
+      useCustomTimetable: true
+    }));
+    nextStep();
+  };
+
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     completeOnboarding(settings);
+  };
+
+  // Skip timetable customization
+  const skipCustomization = () => {
+    setSettings(prev => ({
+      ...prev,
+      useCustomTimetable: false,
+      customTimeBlocks: []
+    }));
+    nextStep();
   };
 
   // Handle step navigation
@@ -94,6 +126,7 @@ function Onboarding({ completeOnboarding }) {
             <div className={`step ${step >= 1 ? 'active' : ''}`}></div>
             <div className={`step ${step >= 2 ? 'active' : ''}`}></div>
             <div className={`step ${step >= 3 ? 'active' : ''}`}></div>
+            <div className={`step ${step >= 4 ? 'active' : ''}`}></div>
           </div>
         </div>
 
@@ -174,6 +207,88 @@ function Onboarding({ completeOnboarding }) {
           )}
 
           {step === 3 && (
+            <div className="onboarding-step">
+              <h2>Customize Your Daily Schedule</h2>
+              <p>
+                The path of the Templar Arbiter includes a structured daily practice. 
+                Would you like to use the default schedule or create your own?
+              </p>
+              
+              <div className="schedule-options">
+                <div className="option-buttons">
+                  <button 
+                    type="button" 
+                    className="option-button" 
+                    onClick={() => nextStep()}
+                  >
+                    Use Default Schedule
+                  </button>
+                  <button 
+                    type="button" 
+                    className="option-button custom" 
+                    onClick={() => {
+                      setSettings(prev => ({
+                        ...prev,
+                        useCustomTimetable: true
+                      }));
+                      setStep(3.5);
+                    }}
+                  >
+                    Create Custom Schedule
+                  </button>
+                </div>
+                
+                <div className="schedule-preview">
+                  <h4>Default Schedule Preview</h4>
+                  <div className="default-schedule">
+                    <div className="schedule-group">
+                      <h5>Morning</h5>
+                      <ul>
+                        {timeBlocks.slice(0, 6).map(block => (
+                          <li key={block.id}>{block.time} - {block.activity}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="schedule-group">
+                      <h5>Afternoon</h5>
+                      <ul>
+                        {timeBlocks.slice(6, 13).map(block => (
+                          <li key={block.id}>{block.time} - {block.activity}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="schedule-group">
+                      <h5>Evening</h5>
+                      <ul>
+                        {timeBlocks.slice(13, 21).map(block => (
+                          <li key={block.id}>{block.time} - {block.activity}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="onboarding-actions">
+                <button type="button" onClick={prevStep} className="back-button">Back</button>
+              </div>
+            </div>
+          )}
+
+          {step === 3.5 && (
+            <div className="onboarding-step timetable-step">
+              <TimetableCustomization 
+                timeBlocks={timeBlocks}
+                onSave={saveCustomTimetable}
+              />
+              <div className="onboarding-actions">
+                <button type="button" onClick={prevStep} className="back-button">Back</button>
+                <button type="button" onClick={skipCustomization} className="next-button">Skip Customization</button>
+              </div>
+            </div>
+          )}
+
+          {step === 4 && (
             <div className="onboarding-step">
               <h2>The Templar's Oath</h2>
               <div className="templar-oath">

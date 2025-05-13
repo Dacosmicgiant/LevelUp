@@ -342,6 +342,36 @@ function App() {
     return <Onboarding completeOnboarding={completeOnboarding} />;
   }
 
+    const getActiveTimeBlocks = () => {
+  if (gameSettings.useCustomTimetable && gameSettings.customTimeBlocks && gameSettings.customTimeBlocks.length > 0) {
+    return gameSettings.customTimeBlocks;
+  }
+  return timeBlocks;
+};
+
+// Then, when rendering the DailySchedule component, update it to use the active timeblocks
+
+<DailySchedule 
+  timeBlocks={getActiveTimeBlocks()}
+  dateString={dateString}
+  completedBlocks={gameState.completedBlocks[dateString] || []}
+  handleCompleteBlock={handleCompleteBlock}
+  resetCurrentDay={resetCurrentDay}
+/>
+
+// And if you're showing weekend activities together with the daily schedule:
+
+{isWeekend() && (
+  <DailySchedule 
+    timeBlocks={getActiveTimeBlocks()}
+    dateString={dateString}
+    completedBlocks={gameState.completedBlocks[dateString] || []}
+    handleCompleteBlock={handleCompleteBlock}
+    resetCurrentDay={resetCurrentDay}
+    isSecondary={true}
+  />
+)}
+
   return (
     <div className="app-container">
       <Header 

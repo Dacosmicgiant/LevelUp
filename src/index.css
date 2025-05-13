@@ -1,0 +1,1087 @@
+/* Enhanced CSS for Templar's Ascension */
+
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #c0392b;
+  --accent-color: #f39c12;
+  --light-color: #ecf0f1;
+  --dark-color: #34495e;
+  --success-color: #27ae60;
+  --danger-color: #e74c3c;
+  --mental-clarity-color: #3498db;
+  --consistency-color: #e74c3c;
+  --emotional-color: #9b59b6;
+  --interdependence-color: #2ecc71;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+  color: var(--primary-color);
+}
+
+/* App Container */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Onboarding Styles */
+.onboarding-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  background-image: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)),
+                    url('https://images.unsplash.com/photo-1518546305927-5a555bb7020d');
+  background-size: cover;
+  background-position: center;
+}
+
+.onboarding-card {
+  width: 90%;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.onboarding-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.onboarding-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.step {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.step.active {
+  background-color: white;
+}
+
+.onboarding-step {
+  padding: 30px;
+}
+
+.onboarding-step h2 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.range-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.journey-note {
+  font-style: italic;
+  color: #666;
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+.onboarding-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.back-button, .next-button, .submit-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.back-button {
+  background-color: #ddd;
+  color: #333;
+}
+
+.next-button, .submit-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.back-button:hover {
+  background-color: #ccc;
+}
+
+.next-button:hover, .submit-button:hover {
+  background-color: var(--dark-color);
+}
+
+.templar-oath {
+  background-color: #f9f9f9;
+  border-left: 4px solid var(--accent-color);
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* Header Styles */
+.app-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.character-profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.character-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--dark-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 3px solid var(--accent-color);
+}
+
+.avatar-initiate {
+  background-image: url('https://img.icons8.com/color/96/000000/medieval-crown.png');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.avatar-knight {
+  background-image: url('https://img.icons8.com/color/96/000000/sword.png');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-color: #3498db;
+}
+
+.avatar-sage {
+  background-image: url('https://img.icons8.com/color/96/000000/wizard.png');
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-color: #9b59b6;
+}
+
+.avatar-ascended {
+  background-image: url('https://img.icons8.com/color/96/000000/laurel-wreath.png');
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-color: gold;
+  box-shadow: 0 0 15px gold;
+}
+
+.avatar-level {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 24px;
+  height: 24px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.character-details {
+  flex-grow: 1;
+}
+
+.character-details h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.character-details h2 {
+  margin: 5px 0 10px;
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
+
+.level-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.experience-bar {
+  height: 15px;
+  flex-grow: 1;
+  max-width: 300px;
+  background-color: var(--dark-color);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.experience-fill {
+  height: 100%;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+/* Main Content Layout */
+.app-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.journey-column, .activity-column, .quest-column {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.section h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 10px;
+}
+
+/* Journey Map Styles */
+.journey-progress {
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  height: 15px;
+  background-color: var(--dark-color);
+  border-radius: 7px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.progress-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.journey-path {
+  position: relative;
+  height: 200px;
+  margin: 40px 0;
+  border-bottom: 4px solid var(--dark-color);
+}
+
+.milestone {
+  position: absolute;
+  bottom: -10px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.milestone-node {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--dark-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 10px;
+  z-index: 2;
+}
+
+.milestone-completed .milestone-node {
+  background-color: var(--success-color);
+}
+
+.milestone-active .milestone-node {
+  background-color: var(--accent-color);
+}
+
+.milestone-active-indicator {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-color);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+.milestone-info {
+  position: absolute;
+  bottom: 40px;
+  width: 150px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  transform: translateX(-50%);
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.milestone-week {
+  font-weight: bold;
+  color: var(--primary-color);
+  font-size: 0.8rem;
+}
+
+.milestone-title {
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.milestone-challenges {
+  font-size: 0.8rem;
+  color: var(--success-color);
+}
+
+.milestone-locked-info {
+  background-color: #f9f9f9;
+}
+
+.milestone-locked-text {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.journey-goal {
+  display: flex;
+  align-items: center;
+  background-color: #fffaed;
+  border-radius: 4px;
+  padding: 15px;
+  border-left: 4px solid gold;
+}
+
+.goal-icon {
+  font-size: 2rem;
+  margin-right: 15px;
+}
+
+.goal-description h4 {
+  margin: 0 0 5px 0;
+  color: var(--primary-color);
+}
+
+.goal-description p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Character Stats Styles */
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.stat-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.stat-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: white;
+}
+
+.stat-icon {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.stat-name {
+  flex-grow: 1;
+  font-weight: bold;
+}
+
+.stat-meter {
+  height: 8px;
+  background-color: #f0f0f0;
+}
+
+.stat-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.stat-description {
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Daily Schedule Styles */
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.completion-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.completion-percentage {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.reset-button {
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.2s ease;
+}
+
+.reset-button:hover {
+  background-color: #c0392b;
+}
+
+.day-period {
+  margin-bottom: 20px;
+}
+
+.day-period h4 {
+  margin: 0 0 10px 0;
+  color: var(--primary-color);
+}
+
+.time-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.time-block {
+  display: flex;
+  align-items: center;
+  background-color: var(--light-color);
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.time-block:hover {
+  transform: translateX(5px);
+}
+
+.time-block.completed {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.time {
+  width: 120px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.activity {
+  flex-grow: 1;
+}
+
+.block-xp {
+  font-size: 0.8rem;
+  color: #666;
+  margin-right: 10px;
+}
+
+.time-block.completed .block-xp {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.status-indicator {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Quest Styles */
+.quest-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.quest-header h4 {
+  margin: 0;
+  color: var(--secondary-color);
+}
+
+.quest-progress {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.quest-description {
+  margin-bottom: 15px;
+  font-style: italic;
+  color: #666;
+}
+
+.quest-challenges {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.challenge-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.challenge-item:hover {
+  background-color: #f0f0f0;
+}
+
+.challenge-completed {
+  background-color: #e8f8f5;
+  border-left: 3px solid var(--success-color);
+}
+
+.challenge-check {
+  margin-right: 10px;
+  color: var(--success-color);
+  font-weight: bold;
+}
+
+.challenge-text {
+  flex-grow: 1;
+  font-size: 0.9rem;
+}
+
+.quest-complete-bonus {
+  display: flex;
+  align-items: center;
+  background-color: #fffaed;
+  border: 1px dashed gold;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.bonus-icon {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.bonus-text h5 {
+  margin: 0 0 5px 0;
+  color: var(--primary-color);
+}
+
+.bonus-text p {
+  margin: 0;
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Journal Styles */
+.journal-date {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.journal-entry textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: inherit;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.journal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.journal-xp {
+  font-size: 0.8rem;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.journal-footer button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.journal-footer button:hover {
+  background-color: var(--dark-color);
+}
+
+.journal-footer button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .app-content {
+    flex-direction: column;
+  }
+  
+  .journey-column, .activity-column, .quest-column {
+    width: 100%;
+  }
+  
+  .character-profile {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .character-details {
+    width: 100%;
+  }
+  
+  .milestone-info {
+    display: none;
+  }
+  
+  .milestone:hover .milestone-info {
+    display: block;
+  }
+}
+
+/* Header Actions */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.character-profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-actions {
+  margin-left: 20px;
+}
+
+.restart-button {
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.restart-button:hover {
+  background-color: #c0392b;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: var(--danger-color);
+  border-bottom: 2px solid var(--danger-color);
+  padding-bottom: 10px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.cancel-button, .confirm-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.cancel-button {
+  background-color: #eee;
+  color: #333;
+}
+
+.confirm-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.confirm-button.danger {
+  background-color: var(--danger-color);
+}
+
+.cancel-button:hover {
+  background-color: #ddd;
+}
+
+.confirm-button:hover {
+  background-color: var(--dark-color);
+}
+
+.confirm-button.danger:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header-actions {
+    margin-left: 0;
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .restart-button {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .cancel-button, .confirm-button {
+    width: 100%;
+  }
+}
+/* Add these styles to your existing CSS file for the enhanced journal */
+
+/* Journal Styles */
+.journal-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Journal Entry Header */
+.journal-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.journal-date {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.journal-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* History Toggle Button */
+.history-toggle {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.history-toggle:hover {
+  background-color: var(--dark-color);
+}
+
+/* Current Entry */
+.journal-current-entry textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: inherit;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.journal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.journal-xp {
+  font-size: 0.8rem;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.journal-footer button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.journal-footer button:hover {
+  background-color: var(--dark-color);
+}
+
+.journal-footer button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.return-button {
+  background-color: var(--accent-color) !important;
+}
+
+.return-button:hover {
+  background-color: #d35400 !important;
+}
+
+/* Journal History */
+.journal-history {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.history-header h4 {
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.empty-history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #777;
+  text-align: center;
+}
+
+.entry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.history-entry {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #f9f9f9;
+}
+
+.history-entry:hover {
+  background-color: #f0f0f0;
+  transform: translateX(5px);
+}
+
+.entry-date {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.entry-preview {
+  font-size: 0.85rem;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .journal-entry-header,
+  .history-header,
+  .journal-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .journal-actions,
+  .journal-footer button {
+    align-self: flex-end;
+  }
+  
+  .journal-xp {
+    align-self: flex-start;
+  }
+}
